@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ca04ssjgs72qv"]
 
 [ext_resource type="Script" uid="uid://cb0amr74lswlh" path="res://scripts/cart.gd" id="1_bttn7"]
-[ext_resource type="Texture2D" uid="uid://d32ljeryoy1lb" path="res://assets/cart-body.png" id="2_e671f"]
-[ext_resource type="Texture2D" uid="uid://burgulcceansv" path="res://assets/wheel_2.png" id="3_wuvqt"]
-[ext_resource type="Texture2D" uid="uid://1yp3dvcoptg4" path="res://assets/wheel_1.png" id="4_766cb"]
-[ext_resource type="Texture2D" uid="uid://by30g8hntdjwe" path="res://assets/cannon.png" id="5_wuvqt"]
+[ext_resource type="Texture2D" uid="uid://fcubsylmx1w2" path="res://assets/cart-body.svg" id="2_wuvqt"]
+[ext_resource type="Texture2D" uid="uid://iiyjuov7f75f" path="res://assets/wheel_1.svg" id="3_766cb"]
+[ext_resource type="Texture2D" uid="uid://cisyt3eie4jwe" path="res://assets/wheel_2.svg" id="4_1p7kt"]
+[ext_resource type="Texture2D" uid="uid://qi081tuoq30i" path="res://assets/cannon.svg" id="5_5qji0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
 size = Vector2(245, 72)
@@ -29,7 +29,9 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_jljl1")
 
 [node name="Cart_Sprite" type="Sprite2D" parent="Body" unique_id=1741073857]
-texture = ExtResource("2_e671f")
+texture_filter = 2
+texture_repeat = 1
+texture = ExtResource("2_wuvqt")
 
 [node name="Camera2D" type="Camera2D" parent="Body" unique_id=2050098536]
 
@@ -49,8 +51,10 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_k0p8n")
 
 [node name="Wheel_Sprite" type="Sprite2D" parent="Front_Wheel_Joint/Front_Wheel" unique_id=1934771786]
-scale = Vector2(2, 2)
-texture = ExtResource("3_wuvqt")
+texture_filter = 4
+texture_repeat = 1
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("3_766cb")
 
 [node name="Back_Wheel_Joint" type="PinJoint2D" parent="." unique_id=1316989576]
 position = Vector2(-100, 60)
@@ -68,8 +72,10 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_k0p8n")
 
 [node name="Wheel_Sprite" type="Sprite2D" parent="Back_Wheel_Joint/Back_Wheel" unique_id=111047940]
-scale = Vector2(2, 2)
-texture = ExtResource("4_766cb")
+texture_filter = 2
+texture_repeat = 1
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("4_1p7kt")
 
 [node name="Cannon_Joint" type="PinJoint2D" parent="." unique_id=799181464]
 position = Vector2(-123, -60)
@@ -78,8 +84,7 @@ node_b = NodePath("Cannon")
 bias = 0.9
 disable_collision = false
 angular_limit_enabled = true
-angular_limit_lower = -0.06981317
-angular_limit_upper = -0.80285144
+angular_limit_upper = -0.61086524
 motor_enabled = true
 
 [node name="Cannon" type="RigidBody2D" parent="Cannon_Joint" unique_id=1874304439]
@@ -89,8 +94,10 @@ can_sleep = false
 angular_damp = 8.0
 
 [node name="Cannon_Sprite" type="Sprite2D" parent="Cannon_Joint/Cannon" unique_id=822334950]
+texture_filter = 2
+texture_repeat = 1
 position = Vector2(123, 0)
-texture = ExtResource("5_wuvqt")
+texture = ExtResource("5_5qji0")
 
 [node name="Cannon_Shape" type="CollisionShape2D" parent="Cannon_Joint/Cannon" unique_id=1467492209]
 position = Vector2(125, 0)

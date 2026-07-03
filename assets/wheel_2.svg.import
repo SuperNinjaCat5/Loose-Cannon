@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d32ljeryoy1lb"
-path="res://.godot/imported/cart-body.png-4596b7270a0baa8b813e35852364a792.ctex"
+uid="uid://cisyt3eie4jwe"
+path="res://.godot/imported/wheel_2.svg-6558550454774e5afc372cdbc07cca23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cart-body.png"
-dest_files=["res://.godot/imported/cart-body.png-4596b7270a0baa8b813e35852364a792.ctex"]
+source_file="res://assets/wheel_2.svg"
+dest_files=["res://.godot/imported/wheel_2.svg-6558550454774e5afc372cdbc07cca23.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

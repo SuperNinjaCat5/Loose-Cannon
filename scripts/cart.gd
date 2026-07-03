@@ -38,6 +38,11 @@ func _physics_process(delta: float) -> void:
 	
 	cannon_joint.motor_target_velocity = Input.get_axis("Up","Down") * cannon_motor_speed
 	
+	if(cannon_joint.motor_target_velocity == 0):
+		cannon_rb.lock_rotation = true
+	else:
+		cannon_rb.lock_rotation = false
+	
 	#if(cannon_joint.motor_target_velocity == -cannon_motor_speed and cannon_rb.rotation_degrees  <= -45): 
 		#cannon_rb.lock_rotation = true
 	#elif(cannon_joint.motor_target_velocity == +cannon_motor_speed and cannon_rb.rotation_degrees  >= -4):

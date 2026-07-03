@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1yp3dvcoptg4"
-path="res://.godot/imported/wheel_1.png-1049e1e78aaf732037b3509e44435473.ctex"
+uid="uid://iiyjuov7f75f"
+path="res://.godot/imported/wheel_1.svg-9c0c804029394cc002af8955f8e97f32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wheel_1.png"
-dest_files=["res://.godot/imported/wheel_1.png-1049e1e78aaf732037b3509e44435473.ctex"]
+source_file="res://assets/wheel_1.svg"
+dest_files=["res://.godot/imported/wheel_1.svg-9c0c804029394cc002af8955f8e97f32.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

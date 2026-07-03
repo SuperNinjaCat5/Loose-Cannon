@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by30g8hntdjwe"
-path="res://.godot/imported/cannon.png-d37649f5df114662f36ae2c69bb72fde.ctex"
+uid="uid://fcubsylmx1w2"
+path="res://.godot/imported/cart-body.svg-9018f1c97c7986cca5f6731b78931b1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cannon.png"
-dest_files=["res://.godot/imported/cannon.png-d37649f5df114662f36ae2c69bb72fde.ctex"]
+source_file="res://assets/cart-body.svg"
+dest_files=["res://.godot/imported/cart-body.svg-9018f1c97c7986cca5f6731b78931b1c.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

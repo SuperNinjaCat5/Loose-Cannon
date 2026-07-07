@@ -1,36 +1,39 @@
 extends Node2D
 
-const cannon_motor_speed = 100
-const wheel_motor_speed = 15
+@export var cannon_motor_speed = 100
+@export var wheel_motor_speed = 25
 
-@onready var front_wheel_joint = $Front_Wheel_Joint
-@onready var back_wheel_joint = $Back_Wheel_Joint
+@export var PROJECTILE = preload("res://scenes/cannon_ball.tscn")
+
+@onready var front_wheel_joint: PinJoint2D = $Front_Wheel_Joint
+@onready var back_wheel_joint: PinJoint2D = $Back_Wheel_Joint
 
 @onready var cannon_joint = $Cannon_Joint
 @onready var cannon_rb = $Cannon_Joint/Cannon
-var PlayerIsUsingCart: bool = true
 
-func _ready():
-	print("=== READY ===")
-	print("cannon_rb name: ", cannon_rb.name)
-	print("cannon_rb path: ", cannon_rb.get_path())
-	print("gravity_scale BEFORE: ", cannon_rb.gravity_scale)
-	cannon_rb.gravity_scale = 0
-	cannon_rb.angular_damp = 8.0
-	cannon_joint.angular_limit_enabled = true
-	cannon_joint.angular_limit_lower = deg_to_rad(-45)
-	cannon_joint.angular_limit_upper = deg_to_rad(-4)
-	print("gravity_scale AFTER: ", cannon_rb.gravity_scale)
-	print("angular_limit_enabled: ", cannon_joint.angular_limit_enabled)
-	print("angular_limit_lower: ", cannon_joint.angular_limit_lower, " (", rad_to_deg(cannon_joint.angular_limit_lower), " deg)")
-	print("angular_limit_upper: ", cannon_joint.angular_limit_upper, " (", rad_to_deg(cannon_joint.angular_limit_upper), " deg)")
-	print("cannon_joint node_a: ", cannon_joint.node_a)
-	print("cannon_joint node_b: ", cannon_joint.node_b)
-	print("=============")
+@onready var fire_marker = $Cannon_Joint/Cannon/Fire_Marker
+@onready var power_progress_bar = $Cannon_Joint/Cannon/Cannon_Power_Bar
+
+var IsUsingCart: bool = true
+
+var IsAiming: bool = 0
+var AimingTime: float = 0
+
+@onready var bar_stylebox = power_progress_bar.get_theme_stylebox("fill").duplicate()
+const COOLDOWN_RED := Color("bf2639")
+const KILL_THEM_ALL_GREEN := Color("49a078")
+var attempted_aim_dur_cooldown: bool = false
+
+@export var cannon_power: float = 100
+var calced_power: float
+@onready var cannon_cooldown = $Cannon_Joint/Cannon/Cannon_Cooldown
+
+func _ready() -> void:
+	power_progress_bar.add_theme_stylebox_override("fill", bar_stylebox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if PlayerIsUsingCart != true:
+	if IsUsingCart != true:
 		return
 		
 	front_wheel_joint.motor_target_velocity = Input.get_axis("Left","Right") * wheel_motor_speed
@@ -42,12 +45,38 @@ func _physics_process(delta: float) -> void:
 		cannon_rb.lock_rotation = true
 	else:
 		cannon_rb.lock_rotation = false
-	
-	#if(cannon_joint.motor_target_velocity == -cannon_motor_speed and cannon_rb.rotation_degrees  <= -45): 
-		#cannon_rb.lock_rotation = true
-	#elif(cannon_joint.motor_target_velocity == +cannon_motor_speed and cannon_rb.rotation_degrees  >= -4):
-		#cannon_rb.lock_rotation = true
-	#else: 
-		#cannon_rb.lock_rotation = false
 		
-	print(cannon_rb.rotation_degrees, " ", cannon_joint.motor_target_velocity)
+	if IsAiming == true: 
+		AimingTime += delta # Update Aiming time
+		calced_power = abs(cannon_power * sin(AimingTime)) # Calc Power
+		power_progress_bar.value = calced_power / cannon_power * 100 # Update Bar
+	elif !cannon_cooldown.is_stopped():
+		power_progress_bar.value = cannon_cooldown.time_left / cannon_cooldown.wait_time * 100
+
+func _unhandled_input(event: InputEvent) -> void:
+	if !cannon_cooldown.is_stopped():
+		attempted_aim_dur_cooldown = true
+		return
+	if event.is_action_pressed("Interact"):
+		bar_stylebox.bg_color = KILL_THEM_ALL_GREEN # Set the bar green
+		IsAiming = true
+		AimingTime = 0
+	elif event.is_action_released("Interact"):
+		IsAiming = false
+		if attempted_aim_dur_cooldown == false:
+			fire_cannon_ball(calced_power)
+		else:
+			attempted_aim_dur_cooldown = false
+		
+func fire_cannon_ball(power) -> void:
+	var pro = PROJECTILE.instantiate()
+	cannon_rb.add_sibling(pro)
+	pro.global_position = fire_marker.global_position
+	pro.linear_velocity = cannon_rb.global_transform.x * power
+	cannon_cooldown.start()
+	bar_stylebox.bg_color = COOLDOWN_RED
+
+func _on_cannon_cooldown_timeout() -> void:
+	power_progress_bar.value = 0
+	IsAiming = false
+	calced_power = 0

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://yfhdegpykn3e"]
+
+[ext_resource type="Texture2D" uid="uid://c7yb27j8g4am4" path="res://assets/cannon_ball.svg" id="1_4105j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jljl1"]
+radius = 34.0147
+
+[node name="cannon_ball" type="RigidBody2D" unique_id=1379676203]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=160720966]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_4105j")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=675786485]
+shape = SubResource("CircleShape2D_jljl1")

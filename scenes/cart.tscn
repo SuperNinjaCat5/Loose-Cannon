@@ -16,8 +16,16 @@ radius = 16.27882
 radius = 27.0
 height = 242.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_766cb"]
+bg_color = Color(0.28627452, 0.627451, 0.47058824, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="Cart" type="Node2D" unique_id=36557850]
 script = ExtResource("1_bttn7")
+cannon_power = 1000.0
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1403721947]
 mass = 10.0
@@ -66,6 +74,7 @@ motor_enabled = true
 [node name="Back_Wheel" type="RigidBody2D" parent="Back_Wheel_Joint" unique_id=380326891]
 mass = 2.0
 can_sleep = false
+linear_damp = 10.0
 
 [node name="Wheel_Shape" type="CollisionShape2D" parent="Back_Wheel_Joint/Back_Wheel" unique_id=876593875]
 scale = Vector2(2, 2)
@@ -93,13 +102,30 @@ gravity_scale = 0.0
 can_sleep = false
 angular_damp = 8.0
 
-[node name="Cannon_Sprite" type="Sprite2D" parent="Cannon_Joint/Cannon" unique_id=822334950]
+[node name="Sprite" type="Sprite2D" parent="Cannon_Joint/Cannon" unique_id=822334950]
 texture_filter = 2
 texture_repeat = 1
 position = Vector2(123, 0)
 texture = ExtResource("5_5qji0")
 
-[node name="Cannon_Shape" type="CollisionShape2D" parent="Cannon_Joint/Cannon" unique_id=1467492209]
+[node name="Shape" type="CollisionShape2D" parent="Cannon_Joint/Cannon" unique_id=1467492209]
+visible = false
 position = Vector2(125, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_d1eul")
+
+[node name="Fire_Marker" type="Marker2D" parent="Cannon_Joint/Cannon" unique_id=1393414529]
+position = Vector2(246, 0)
+
+[node name="Cannon_Power_Bar" type="ProgressBar" parent="Cannon_Joint/Cannon" unique_id=286672003]
+offset_left = 74.0
+offset_top = -15.0
+offset_right = 184.0
+offset_bottom = 15.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_766cb")
+show_percentage = false
+
+[node name="Cannon_Cooldown" type="Timer" parent="Cannon_Joint/Cannon" unique_id=107995014]
+one_shot = true
+
+[connection signal="timeout" from="Cannon_Joint/Cannon/Cannon_Cooldown" to="." method="_on_cannon_cooldown_timeout"]

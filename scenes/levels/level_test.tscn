@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://u4vhlxxdukoy"]
+
+[ext_resource type="Script" uid="uid://dr4n5iy0438gs" path="res://scenes/levels/level_test.gd" id="1_h0hot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
+size = Vector2(3403, 898)
+
+[node name="LevelTest" type="Node2D" unique_id=1366936845]
+script = ExtResource("1_h0hot")
+
+[node name="Cliff" type="StaticBody2D" parent="." unique_id=2142637843]
+
+[node name="Texture" type="Polygon2D" parent="Cliff" unique_id=2005441091]
+polygon = PackedVector2Array(248, 199, -494, 196, -497, 752, 549, 755, 466, 202)
+
+[node name="Contact_Box" type="CollisionPolygon2D" parent="Cliff" unique_id=1445257474]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=275956902]
+
+[node name="Texture" type="Polygon2D" parent="Ground" unique_id=946635140]
+position = Vector2(-77, -18)
+polygon = PackedVector2Array(489, 653, 2958, 659, 2964, 754, 530, 760)
+
+[node name="Contact_Box" type="CollisionPolygon2D" parent="Ground" unique_id=618245253]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=737321385]
+editor_draw_screen = false
+
+[node name="Level_Bounds" type="Area2D" parent="." unique_id=1558515055]
+monitoring = false
+monitorable = false
+
+[node name="Boundtangle" type="CollisionShape2D" parent="Level_Bounds" unique_id=817146254]
+position = Vector2(1201.5, 315)
+shape = SubResource("RectangleShape2D_jljl1")
+disabled = true

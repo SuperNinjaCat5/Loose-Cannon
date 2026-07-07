@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	front_wheel_joint.motor_target_velocity = Input.get_axis("Left","Right") * wheel_motor_speed
-	back_wheel_joint.motor_target_velocity = Input.get_axis("Left","Right") * wheel_motor_speed
+	back_wheel_joint.motor_target_velocity = Input.get_axis("Left","Right") * wheel_motor_speed 
 	
 	cannon_joint.motor_target_velocity = Input.get_axis("Up","Down") * cannon_motor_speed
 	

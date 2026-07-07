@@ -13,7 +13,13 @@ Collect magical goods from raided encampments, and the wild. Use them to brew di
 
 ### Skills I need to learn/improve at
 
-- Building games using Godot
-- Game optimization :sob:
-- Creating game art
-- Learning to compose game music
+- [ ] Improve at building games using Godot
+- [ ] Figure out game optimization :sob:
+- [ ] Learn to create game art
+- [ ] Learn to compose game music
+
+### Bugs
+
+- [ ] When the cart drives off a ledge the wheel that's fallen spins but the wheel that is hasn't doesnt, so you get stuck.
+- [ ]
+

@@ -44,8 +44,8 @@ I began drawing a lot of the major assets for the game. I decided to redraw the 
 
 My original assets used godot scale to look right, this time I decided on making art in scenes (ex. 1980 x 1020 large canvas). This way I could make each asset in a layer (or layer group) and export them each as a texture that I can easy drop into the game.
 
-![art](journal-photos\art-july8-26.jpeg)
+![art](journal-photos\new-art-july8-26.jpeg)
 
 Lapse: I used my Ipad and afaik I can't lapse it
 
-*Total time: ~4 hours*
+*Total time: ~5 hours*

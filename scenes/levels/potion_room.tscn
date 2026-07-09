@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b2ywcxdpaldvm"]
+
+[ext_resource type="Texture2D" uid="uid://mgocl12nt2ns" path="res://assets/potion_room/pedestal.jpeg" id="1_hpk4p"]
+[ext_resource type="Texture2D" uid="uid://bc25jp7ye2hcm" path="res://assets/potion_room/cauldron.jpeg" id="2_u3xto"]
+[ext_resource type="Texture2D" uid="uid://ivj5lwfticnv" path="res://assets/effects/fire_01.png" id="3_21ff1"]
+[ext_resource type="Texture2D" uid="uid://bk0xoe2fq0mv3" path="res://assets/effects/fire_02.png" id="4_6xvjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8dhq"]
+size = Vector2(1880, 1080)
+
+[sub_resource type="Curve" id="Curve_jljl1"]
+_data = [Vector2(0, 0.017857194), 0.0, 0.0, 0, 0, Vector2(0.15837105, 0.56250006), 0.0, 0.0, 0, 0, Vector2(0.34841633, 0.82142866), 0.0, 0.0, 0, 0, Vector2(0.5339367, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_k0p8n"]
+offsets = PackedFloat32Array(0, 0.80585104, 1)
+colors = PackedColorArray(0.9401661, 0.38141224, 3.85046e-07, 1, 1, 0.77254903, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_fy1vd"]
+offsets = PackedFloat32Array(0, 0.75797874, 1)
+colors = PackedColorArray(0.85490197, 0, 0.05490196, 1, 1, 0.8862745, 0, 1, 1, 0.4745098, 0, 1)
+
+[node name="potion_room" type="Node2D" unique_id=1044880242]
+
+[node name="Level_Bounds" type="Area2D" parent="." unique_id=1948425063]
+monitoring = false
+monitorable = false
+
+[node name="Boundtangle" type="CollisionShape2D" parent="Level_Bounds" unique_id=202325634]
+shape = SubResource("RectangleShape2D_d8dhq")
+disabled = true
+
+[node name="Pedestal" type="Sprite2D" parent="." unique_id=1529514582]
+position = Vector2(450, 470)
+texture = ExtResource("1_hpk4p")
+
+[node name="Cauldron" type="Sprite2D" parent="." unique_id=1078023893]
+position = Vector2(450, 170)
+texture = ExtResource("2_u3xto")
+
+[node name="Fire" type="Node2D" parent="." unique_id=1830292278]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Fire" unique_id=680445446]
+texture = ExtResource("3_21ff1")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 50.0
+gravity = Vector2(0, -300)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 32.0
+angular_velocity_max = 32.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_jljl1")
+color_ramp = SubResource("Gradient_k0p8n")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Fire" unique_id=1832881785]
+texture = ExtResource("4_6xvjt")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+spread = 50.0
+gravity = Vector2(0, -300)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 32.0
+angular_velocity_max = 32.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_jljl1")
+color_ramp = SubResource("Gradient_fy1vd")

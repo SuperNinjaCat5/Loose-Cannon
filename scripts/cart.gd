@@ -3,7 +3,8 @@ extends Node2D
 @export var cannon_motor_speed = 100
 @export var wheel_motor_speed = 25
 
-@export var PROJECTILE = preload("res://scenes/cannon_ball.tscn")
+@onready var potion_manager: Potion_Manager = $potion_manager
+@onready var potion_scene: PackedScene = preload("res://scenes/potion.tscn")
 
 @onready var front_wheel_joint: PinJoint2D = $Front_Wheel_Joint
 @onready var back_wheel_joint: PinJoint2D = $Back_Wheel_Joint
@@ -30,6 +31,11 @@ var calced_power: float
 
 func _ready() -> void:
 	power_progress_bar.add_theme_stylebox_override("fill", bar_stylebox)
+	
+	var ing = preload("res://resources/ingredients/pepper.tres")
+	var ings: Array[Ingredient] = []
+	ings.append(ing)
+	potion_manager.create_potion(ings)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -69,10 +75,27 @@ func _unhandled_input(event: InputEvent) -> void:
 			attempted_aim_dur_cooldown = false
 		
 func fire_cannon_ball(power) -> void:
-	var pro = PROJECTILE.instantiate()
-	cannon_rb.add_sibling(pro)
-	pro.global_position = fire_marker.global_position
-	pro.linear_velocity = cannon_rb.global_transform.x * power
+	
+	if not potion_manager.numberof_potions() > 0:
+		return ####################################LOSE CONDITION TO GAME MANGER HEREEEEE
+	
+	var potion_data: Potion_Data = potion_manager.yoink_potion(0)
+
+	var potion = potion_scene.instantiate()
+	
+	var potion_sprite: Sprite2D = potion.find_child("sprite")
+	var texture = Texture2D.new()
+	texture.resource_path = potion_data.sprite_path
+	
+	potion_sprite.texture = texture
+	
+	potion.find_child("Bottle1").disabled = true
+	
+	potion.find_child("Bottle",potion_data.getBottleID()).disabled = false
+	
+	cannon_rb.add_sibling(potion)
+	potion.global_position = fire_marker.global_position
+	potion.linear_velocity = cannon_rb.global_transform.x * power
 	cannon_cooldown.start()
 	bar_stylebox.bg_color = COOLDOWN_RED
 

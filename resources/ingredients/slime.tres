@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" format=3 uid="uid://jauwqmym1715"]
+
+[ext_resource type="Script" uid="uid://pn27li01s62g" path="res://scripts/ingredient.gd" id="1_8qnf3"]
+
+[resource]
+script = ExtResource("1_8qnf3")
+name = "Sticky Slime"
+sprite = "uid://shaiqx56kl5t"
+modifier = "Sticky"
+color = Color(0, 0.7983431, 3.85046e-07, 1)
+metadata/_custom_type_script = "uid://pn27li01s62g"

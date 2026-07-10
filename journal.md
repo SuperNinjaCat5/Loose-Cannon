@@ -61,3 +61,13 @@ Lapse:
 - https://lapse.hackclub.com/timelapse/jx8N_QSKtF98
 
 *Total Time: ~4.9 hours*
+
+# July 9: Potions and Ear-rape
+
+I made a several brewing ingredients and 6 bottle shapes in Fresco. After a hassle trying to export on ipad with Fresco, I figured I could use illistrator app to get the art at 4x scale (using 1/4 scale in godot) for good quality. Afterwards I started implementing them into the game, where I created a system using resources and ONLY 1 SCENE which I'm pretty proud of. I still need to fix bugs so it works tho. Note to self: do art for character tomarrow.
+
+Lapse: 
+- Potion art was done on Ipad again (~1.5 hrs)
+- https://lapse.hackclub.com/timelapse/B78hYyx1e7iQ
+
+*Total Time: ~4.5 hours*

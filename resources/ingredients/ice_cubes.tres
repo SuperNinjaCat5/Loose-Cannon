@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" format=3 uid="uid://mt1cs6aaqnpc"]
+
+[ext_resource type="Script" uid="uid://pn27li01s62g" path="res://scripts/ingredient.gd" id="1_y3bsc"]
+
+[resource]
+script = ExtResource("1_y3bsc")
+name = "Ice Cubes"
+sprite = "uid://b1ej0pg6r6is3"
+modifier = "Subzero"
+color = Color(0.31585562, 0.52414423, 1, 1)
+metadata/_custom_type_script = "uid://pn27li01s62g"

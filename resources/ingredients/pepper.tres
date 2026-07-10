@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" format=3 uid="uid://cw6p2a65p5u63"]
+
+[ext_resource type="Script" uid="uid://pn27li01s62g" path="res://scripts/ingredient.gd" id="1_2c70o"]
+
+[resource]
+script = ExtResource("1_2c70o")
+name = "Red Hot Chili Pepper"
+sprite = "uid://cib4v6cvghmc4"
+modifier = "Explosive"
+color = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://pn27li01s62g"

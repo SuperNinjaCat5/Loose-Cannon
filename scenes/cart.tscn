@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://iiyjuov7f75f" path="res://assets/wheel_1.svg" id="3_766cb"]
 [ext_resource type="Texture2D" uid="uid://cisyt3eie4jwe" path="res://assets/wheel_2.svg" id="4_1p7kt"]
 [ext_resource type="Texture2D" uid="uid://qi081tuoq30i" path="res://assets/cannon.svg" id="5_5qji0"]
+[ext_resource type="Script" uid="uid://c3s4becwkqdbi" path="res://scripts/potion_manager.gd" id="6_766cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
 size = Vector2(245, 72)
@@ -25,6 +26,8 @@ corner_radius_bottom_left = 6
 
 [node name="Cart" type="Node2D" unique_id=36557850]
 script = ExtResource("1_bttn7")
+cannon_motor_speed = null
+wheel_motor_speed = null
 cannon_power = 1000.0
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1403721947]
@@ -127,5 +130,8 @@ show_percentage = false
 
 [node name="Cannon_Cooldown" type="Timer" parent="Cannon_Joint/Cannon" unique_id=107995014]
 one_shot = true
+
+[node name="potion_manager" type="Node" parent="." unique_id=246558507]
+script = ExtResource("6_766cb")
 
 [connection signal="timeout" from="Cannon_Joint/Cannon/Cannon_Cooldown" to="." method="_on_cannon_cooldown_timeout"]

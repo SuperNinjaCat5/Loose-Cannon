@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc25jp7ye2hcm"
-path="res://.godot/imported/cauldron.jpeg-f02c6ca908f83717cc9d300ab8dcba94.ctex"
+uid="uid://dfhqbol8kt8j"
+path="res://.godot/imported/bottle3.png-87bba9d5f6aeb851235c2b1ba510b125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/potion_room/cauldron.jpeg"
-dest_files=["res://.godot/imported/cauldron.jpeg-f02c6ca908f83717cc9d300ab8dcba94.ctex"]
+source_file="res://assets/bottles/sprites/bottle3.png"
+dest_files=["res://.godot/imported/bottle3.png-87bba9d5f6aeb851235c2b1ba510b125.ctex"]
 
 [params]
 

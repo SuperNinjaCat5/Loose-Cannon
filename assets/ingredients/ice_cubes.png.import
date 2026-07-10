@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mgocl12nt2ns"
-path="res://.godot/imported/pedestal.jpeg-944b24b20c23c8a1c580eb426076d998.ctex"
+uid="uid://b1ej0pg6r6is3"
+path="res://.godot/imported/ice_cubes.png-a7b90141be4b691869d816c7265e1873.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/potion_room/pedestal.jpeg"
-dest_files=["res://.godot/imported/pedestal.jpeg-944b24b20c23c8a1c580eb426076d998.ctex"]
+source_file="res://assets/ingredients/ice_cubes.png"
+dest_files=["res://.godot/imported/ice_cubes.png-a7b90141be4b691869d816c7265e1873.ctex"]
 
 [params]
 

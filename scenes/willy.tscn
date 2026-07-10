@@ -3,5 +3,3 @@
 [node name="Willy" type="Node2D" unique_id=1786865470]
 
 [node name="Body" type="Skeleton2D" parent="." unique_id=1110395162]
-
-[node name="PhysicalBone2D" type="PhysicalBone2D" parent="Body" unique_id=1341432956]

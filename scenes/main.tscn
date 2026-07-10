@@ -2,14 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://ca04ssjgs72qv" path="res://scenes/cart.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://u4vhlxxdukoy" path="res://scenes/levels/level_test.tscn" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://yfhdegpykn3e" path="res://scenes/cannon_ball.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://yfhdegpykn3e" path="res://scenes/potion.tscn" id="3_sugp2"]
 
 [node name="main" type="Node" unique_id=1885324265]
 
-[node name="Cart" parent="." unique_id=36557850 instance=ExtResource("1_o5qli")]
+[node name="cart" parent="." unique_id=36557850 instance=ExtResource("1_o5qli")]
 position = Vector2(86.91264, 75.43724)
+cannon_motor_speed = 100
+wheel_motor_speed = 25
 
 [node name="cannon_ball" parent="." unique_id=1379676203 instance=ExtResource("3_sugp2")]
 position = Vector2(426, 42)
 
-[node name="LevelTest" parent="." unique_id=1366936845 instance=ExtResource("3_jyhfs")]
+[node name="level_test" parent="." unique_id=1366936845 instance=ExtResource("3_jyhfs")]

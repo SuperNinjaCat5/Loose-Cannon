@@ -7,19 +7,19 @@ You are Willy (the Wizard), a slightly crazy Wizard/Alchemist and a founding of 
 
 ## The Idea (gameplay)
 
-Collect magical goods from raided encampments, and the wild. Use them to brew different potions or other projectiles. Shoot them from your cannon at Angry Birds like structures trying to the crystals that power the dark wizards evil magic.
+Collect magical goods from raided encampments. Use them to brew different potions. Shoot them from your cannon at Angry Birds like structures trying to destroy the crystals that power the dark wizards' evil magic.
 
 ## Plan
 
 ### Skills I need to learn/improve at
 
-- [ ] Improve at building games using Godot
-- [ ] Figure out game optimization :sob:
-- [ ] Learn to create game art
-- [ ] Learn to compose game music
+- Improve at building games using Godot
+- Figure out game optimization :sob:
+- Learn to create game art (kinda done!!)
+- Learn to compose game music
 
 ### Bugs
 
 - [ ] When the cart drives off a ledge the wheel that's fallen spins but the wheel that is hasn't doesnt, so you get stuck.
-- [ ]
+- [ ] Cannon doest work
 

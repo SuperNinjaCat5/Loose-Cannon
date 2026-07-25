@@ -25,17 +25,18 @@ const COOLDOWN_RED := Color("bf2639")
 const KILL_THEM_ALL_GREEN := Color("49a078")
 var attempted_aim_dur_cooldown: bool = false
 
-@export var cannon_power: float = 100
+@export var cannon_power: float = 1500
 var calced_power: float
 @onready var cannon_cooldown = $Cannon_Joint/Cannon/Cannon_Cooldown
 
 func _ready() -> void:
 	power_progress_bar.add_theme_stylebox_override("fill", bar_stylebox)
 	
-	var ing = preload("res://resources/ingredients/pepper.tres")
-	var ings: Array[Ingredient] = []
-	ings.append(ing)
-	potion_manager.create_potion(ings)
+	for i in range(10):
+		var ing = preload("res://resources/ingredients/pepper.tres")
+		var ings: Array[Ingredient] = []
+		ings.append(ing)
+		potion_manager.create_potion(ings)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -60,42 +61,50 @@ func _physics_process(delta: float) -> void:
 		power_progress_bar.value = cannon_cooldown.time_left / cannon_cooldown.wait_time * 100
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !cannon_cooldown.is_stopped():
-		attempted_aim_dur_cooldown = true
-		return
-	if event.is_action_pressed("Interact"):
-		bar_stylebox.bg_color = KILL_THEM_ALL_GREEN # Set the bar green
-		IsAiming = true
-		AimingTime = 0
-	elif event.is_action_released("Interact"):
-		IsAiming = false
-		if attempted_aim_dur_cooldown == false:
-			fire_cannon_ball(calced_power)
-		else:
+	if event.is_action_pressed("Interact") or event.is_action_released("Interact"):
+		if not cannon_cooldown.is_stopped():
+			attempted_aim_dur_cooldown = true
+			print("blocked by cooldown, time left: ", cannon_cooldown.time_left)
+			return
+		if event.is_action_pressed("Interact"):
+			print("aim start")
+			bar_stylebox.bg_color = KILL_THEM_ALL_GREEN # Set the bar green
+			IsAiming = true
+			AimingTime = 0
 			attempted_aim_dur_cooldown = false
+		elif event.is_action_released("Interact"):
+			print("aim release, attempted_flag=", attempted_aim_dur_cooldown)
+			IsAiming = false
+			if attempted_aim_dur_cooldown == false:
+				fire_cannon_ball(calced_power)
+			else:
+				attempted_aim_dur_cooldown = false
 		
 func fire_cannon_ball(power) -> void:
-	
 	if not potion_manager.numberof_potions() > 0:
 		return ####################################LOSE CONDITION TO GAME MANGER HEREEEEE
 	
 	var potion_data: Potion_Data = potion_manager.yoink_potion(0)
-
-	var potion = potion_scene.instantiate()
+	
+	print(potion_data.sprite_path)
+	
+	var potion: RigidBody2D = potion_scene.instantiate()
 	
 	var potion_sprite: Sprite2D = potion.find_child("sprite")
-	var texture = Texture2D.new()
-	texture.resource_path = potion_data.sprite_path
+	var texture = load(potion_data.sprite_path) as Texture2D
 	
 	potion_sprite.texture = texture
 	
-	potion.find_child("Bottle1").disabled = true
+	potion.find_child("Bottle1").disabled = true # Disable the defualt shape
 	
-	potion.find_child("Bottle",potion_data.getBottleID()).disabled = false
+	var potion_collision_shape: CollisionPolygon2D = potion.find_child("Bottle" + str(potion_data.sprite_id))
+	potion_collision_shape.disabled = false
 	
 	cannon_rb.add_sibling(potion)
 	potion.global_position = fire_marker.global_position
 	potion.linear_velocity = cannon_rb.global_transform.x * power
+	potion.angular_velocity = power * -0.005
+	print(potion.linear_velocity)
 	cannon_cooldown.start()
 	bar_stylebox.bg_color = COOLDOWN_RED
 

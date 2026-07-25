@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iiyjuov7f75f"
-path="res://.godot/imported/wheel_1.svg-9c0c804029394cc002af8955f8e97f32.ctex"
+uid="uid://bud62474kbhp5"
+path="res://.godot/imported/iron_cannon.png-ca1312dfdd66a22c84c420071f7e4c8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wheel_1.svg"
-dest_files=["res://.godot/imported/wheel_1.svg-9c0c804029394cc002af8955f8e97f32.ctex"]
+source_file="res://assets/cannon/iron_cannon.png"
+dest_files=["res://.godot/imported/iron_cannon.png-ca1312dfdd66a22c84c420071f7e4c8f.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

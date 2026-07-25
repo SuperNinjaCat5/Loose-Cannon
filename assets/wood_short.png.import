@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7yb27j8g4am4"
-path="res://.godot/imported/cannon_ball.svg-8c1311803b32d084d2929b411f50116c.ctex"
+uid="uid://bwx3hytju38b5"
+path="res://.godot/imported/wood_short.png-844441e6d2f3336e54eb6e7298941550.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cannon_ball.svg"
-dest_files=["res://.godot/imported/cannon_ball.svg-8c1311803b32d084d2929b411f50116c.ctex"]
+source_file="res://assets/wood_short.png"
+dest_files=["res://.godot/imported/wood_short.png-844441e6d2f3336e54eb6e7298941550.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -71,3 +71,15 @@ Lapse:
 - https://lapse.hackclub.com/timelapse/B78hYyx1e7iQ
 
 *Total Time: ~4.5 hours*
+
+# July 24: Out with the old in with the new
+
+I did some UI art, and implmented most of the new cannon art. I fixed the launch system with the potions. The camera needs to be reworked and the collision shapes for the potions might have to be too.
+
+![video](journal-photos\video-july24.mp4)
+
+Lapse: 
+- UI art (~0.5 hrs)
+- https://lapse.hackclub.com/timelapse/0RV_mGZ6RqlJ
+
+*Total Time: ~1.5 hours*

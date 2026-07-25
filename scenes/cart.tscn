@@ -1,21 +1,14 @@
 [gd_scene format=3 uid="uid://ca04ssjgs72qv"]
 
 [ext_resource type="Script" uid="uid://cb0amr74lswlh" path="res://scripts/cart.gd" id="1_bttn7"]
-[ext_resource type="Texture2D" uid="uid://fcubsylmx1w2" path="res://assets/cart-body.svg" id="2_wuvqt"]
-[ext_resource type="Texture2D" uid="uid://iiyjuov7f75f" path="res://assets/wheel_1.svg" id="3_766cb"]
-[ext_resource type="Texture2D" uid="uid://cisyt3eie4jwe" path="res://assets/wheel_2.svg" id="4_1p7kt"]
-[ext_resource type="Texture2D" uid="uid://qi081tuoq30i" path="res://assets/cannon.svg" id="5_5qji0"]
+[ext_resource type="Texture2D" uid="uid://bud62474kbhp5" path="res://assets/cannon/iron_cannon.png" id="2_wuvqt"]
+[ext_resource type="Texture2D" uid="uid://c7ekqwxmu55rv" path="res://assets/cannon/wood_cart.png" id="3_766cb"]
+[ext_resource type="Texture2D" uid="uid://i18m6hcmiog8" path="res://assets/cannon/wheel.png" id="4_1p7kt"]
 [ext_resource type="Script" uid="uid://c3s4becwkqdbi" path="res://scripts/potion_manager.gd" id="6_766cb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
-size = Vector2(245, 72)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k0p8n"]
-radius = 16.27882
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1eul"]
-radius = 27.0
-height = 242.0
+radius = 95.0
+height = 374.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_766cb"]
 bg_color = Color(0.28627452, 0.627451, 0.47058824, 1)
@@ -24,30 +17,68 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0p8n"]
+radius = 16.5
+
 [node name="Cart" type="Node2D" unique_id=36557850]
 script = ExtResource("1_bttn7")
-cannon_motor_speed = null
-wheel_motor_speed = null
-cannon_power = 1000.0
+
+[node name="Cannon_Joint" type="PinJoint2D" parent="." unique_id=799181464]
+position = Vector2(-117, -47)
+node_a = NodePath("../Body")
+node_b = NodePath("Cannon")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_upper = -0.61086524
+motor_enabled = true
+
+[node name="Cannon" type="RigidBody2D" parent="Cannon_Joint" unique_id=1874304439]
+mass = 2.0
+gravity_scale = 0.0
+can_sleep = false
+angular_damp = 8.0
+
+[node name="Shape" type="CollisionShape2D" parent="Cannon_Joint/Cannon" unique_id=1467492209]
+position = Vector2(125, -40)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_d1eul")
+
+[node name="Sprite" type="Sprite2D" parent="Cannon_Joint/Cannon" unique_id=822334950]
+texture_filter = 2
+texture_repeat = 1
+position = Vector2(127, -45)
+scale = Vector2(0.26, 0.25)
+texture = ExtResource("2_wuvqt")
+
+[node name="Fire_Marker" type="Marker2D" parent="Cannon_Joint/Cannon" unique_id=1393414529]
+position = Vector2(409, -50)
+
+[node name="Cannon_Power_Bar" type="ProgressBar" parent="Cannon_Joint/Cannon" unique_id=286672003]
+offset_left = 74.0
+offset_top = -54.0
+offset_right = 184.0
+offset_bottom = -24.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_766cb")
+show_percentage = false
+
+[node name="Cannon_Cooldown" type="Timer" parent="Cannon_Joint/Cannon" unique_id=107995014]
+one_shot = true
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1403721947]
 mass = 10.0
 can_sleep = false
 
-[node name="Body_Shape" type="CollisionShape2D" parent="Body" unique_id=1036853567]
-position = Vector2(0, 17.999998)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_jljl1")
-
 [node name="Cart_Sprite" type="Sprite2D" parent="Body" unique_id=1741073857]
 texture_filter = 2
 texture_repeat = 1
-texture = ExtResource("2_wuvqt")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_766cb")
 
-[node name="Camera2D" type="Camera2D" parent="Body" unique_id=2050098536]
+[node name="Body_Shape" type="CollisionPolygon2D" parent="Body" unique_id=1284916404]
+polygon = PackedVector2Array(-177, 97, -186, -26, -150, -33, -151, -61, -40, -70, -39, -93, 174, -97, 186, 83)
 
 [node name="Front_Wheel_Joint" type="PinJoint2D" parent="." unique_id=1992583382]
-position = Vector2(100, 60)
+position = Vector2(100, 80)
 node_a = NodePath("../Body")
 node_b = NodePath("Front_Wheel")
 bias = 0.9
@@ -64,11 +95,11 @@ shape = SubResource("CircleShape2D_k0p8n")
 [node name="Wheel_Sprite" type="Sprite2D" parent="Front_Wheel_Joint/Front_Wheel" unique_id=1934771786]
 texture_filter = 4
 texture_repeat = 1
-scale = Vector2(0.128, 0.128)
-texture = ExtResource("3_766cb")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_1p7kt")
 
 [node name="Back_Wheel_Joint" type="PinJoint2D" parent="." unique_id=1316989576]
-position = Vector2(-100, 60)
+position = Vector2(-100, 80)
 node_a = NodePath("../Body")
 node_b = NodePath("Back_Wheel")
 bias = 0.9
@@ -86,50 +117,8 @@ shape = SubResource("CircleShape2D_k0p8n")
 [node name="Wheel_Sprite" type="Sprite2D" parent="Back_Wheel_Joint/Back_Wheel" unique_id=111047940]
 texture_filter = 2
 texture_repeat = 1
-scale = Vector2(0.128, 0.128)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_1p7kt")
-
-[node name="Cannon_Joint" type="PinJoint2D" parent="." unique_id=799181464]
-position = Vector2(-123, -60)
-node_a = NodePath("../Body")
-node_b = NodePath("Cannon")
-bias = 0.9
-disable_collision = false
-angular_limit_enabled = true
-angular_limit_upper = -0.61086524
-motor_enabled = true
-
-[node name="Cannon" type="RigidBody2D" parent="Cannon_Joint" unique_id=1874304439]
-mass = 2.0
-gravity_scale = 0.0
-can_sleep = false
-angular_damp = 8.0
-
-[node name="Sprite" type="Sprite2D" parent="Cannon_Joint/Cannon" unique_id=822334950]
-texture_filter = 2
-texture_repeat = 1
-position = Vector2(123, 0)
-texture = ExtResource("5_5qji0")
-
-[node name="Shape" type="CollisionShape2D" parent="Cannon_Joint/Cannon" unique_id=1467492209]
-visible = false
-position = Vector2(125, 0)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_d1eul")
-
-[node name="Fire_Marker" type="Marker2D" parent="Cannon_Joint/Cannon" unique_id=1393414529]
-position = Vector2(246, 0)
-
-[node name="Cannon_Power_Bar" type="ProgressBar" parent="Cannon_Joint/Cannon" unique_id=286672003]
-offset_left = 74.0
-offset_top = -15.0
-offset_right = 184.0
-offset_bottom = 15.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_766cb")
-show_percentage = false
-
-[node name="Cannon_Cooldown" type="Timer" parent="Cannon_Joint/Cannon" unique_id=107995014]
-one_shot = true
 
 [node name="potion_manager" type="Node" parent="." unique_id=246558507]
 script = ExtResource("6_766cb")

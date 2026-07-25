@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Potion_Data" format=3 uid="uid://b1kwtvuhmo8ir"]
+
+[ext_resource type="Script" uid="uid://pn27li01s62g" path="res://scripts/ingredient.gd" id="1_61lwf"]
+[ext_resource type="Script" uid="uid://b8vewvm2lamrc" path="res://scripts/potion_data.gd" id="1_u3xfy"]
+
+[resource]
+script = ExtResource("1_u3xfy")
+name = "Fire Potion Test"
+liquid_color = Color(0.5809342, 0.36116776, 1.92523e-07, 1)
+metadata/_custom_type_script = "uid://b8vewvm2lamrc"

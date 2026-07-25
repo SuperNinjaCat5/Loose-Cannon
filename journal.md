@@ -9,7 +9,7 @@ created_at: "2026-02-08"
 
 I started getting the cannon setup in Godot and made some starter art. 
 
-![cart-body](assets\cart-body.svg)
+![cart-body](journal-photos\cart-body.svg)
 
 Lapses: 
 - https://lapse.hackclub.com/timelapse/6EN1qiNve6Au
@@ -21,7 +21,7 @@ Lapses:
 
 I made a cannon ball asset and coded shooting functionallity. I used @export so I can theoretically change the projectile later when I add potions (note to self find a way to mass produce potion art). I also added a progress/cooldown bar to shoot how much you have charged it and the cooldown time left.
 
-![cannon-ball](assets/cannon_ball.svg)
+![cannon-ball](journal-photos\cannon_ball.svg)
 
 Lapses:  I forgot to lapse :sob:
 

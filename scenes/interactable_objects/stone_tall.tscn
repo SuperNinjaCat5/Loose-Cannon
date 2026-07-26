@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://da1il0xxv6ync"]
+
+[ext_resource type="Texture2D" uid="uid://dxoxvl4oskhh0" path="res://assets/stone_tall.png" id="1_8ml0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
+size = Vector2(128, 441)
+
+[node name="stone_tall" type="RigidBody2D" unique_id=2035342304]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1641110325]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8ml0w")
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1509279709]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jljl1")

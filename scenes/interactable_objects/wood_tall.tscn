@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b78j2t2hl80uw"]
+
+[ext_resource type="Texture2D" uid="uid://ocp3p0ign7br" path="res://assets/wood_tall.png" id="1_v6d3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
+size = Vector2(137, 447)
+
+[node name="wood_tall" type="RigidBody2D" unique_id=2035342304]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1641110325]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_v6d3e")
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1509279709]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jljl1")

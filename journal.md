@@ -83,3 +83,15 @@ Lapse:
 - https://lapse.hackclub.com/timelapse/0RV_mGZ6RqlJ
 
 *Total Time: ~1.5 hours*
+
+# July 26: my head is broken
+
+I implemented some pretty bad code for breaking the bottles. It could not figure out liquid HELPPP :pf: 
+
+I also added label and a game manager to show when you loss. Overall im 100% gonna regret the changes I made... the code is uhh something
+
+Lapse: 
+- https://lapse.hackclub.com/timelapse/vXZT7uGnEg6X
+
+*Total Time: 1.3 hours*
+

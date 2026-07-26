@@ -81,12 +81,11 @@ func _unhandled_input(event: InputEvent) -> void:
 				attempted_aim_dur_cooldown = false
 		
 func fire_cannon_ball(power) -> void:
-	if not potion_manager.numberof_potions() > 0:
-		return ####################################LOSE CONDITION TO GAME MANGER HEREEEEE
+	if potion_manager.numberof_potions() == 0:
+		GameManager.level_loss.emit()
+		return
 	
 	var potion_data: Potion_Data = potion_manager.yoink_potion(0)
-	
-	print(potion_data.sprite_path)
 	
 	var potion: RigidBody2D = potion_scene.instantiate()
 	
@@ -99,8 +98,9 @@ func fire_cannon_ball(power) -> void:
 	
 	var potion_collision_shape: CollisionPolygon2D = potion.find_child("Bottle" + str(potion_data.sprite_id))
 	potion_collision_shape.disabled = false
-	
+
 	cannon_rb.add_sibling(potion)
+	potion.potion_data = potion_data
 	potion.global_position = fire_marker.global_position
 	potion.linear_velocity = cannon_rb.global_transform.x * power
 	potion.angular_velocity = power * -0.005

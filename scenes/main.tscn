@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://ca04ssjgs72qv" path="res://scenes/cart.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://u4vhlxxdukoy" path="res://scenes/levels/level_test.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://da1il0xxv6ync" path="res://scenes/interactable_objects/stone_tall.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://j0jcopj642t2" path="res://scenes/interactable_objects/wood_short.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://bi3m7n24p3ykt" path="res://scripts/loss_win_label.gd" id="5_tbgi4"]
 
 [node name="main" type="Node" unique_id=1885324265]
 
@@ -9,3 +12,27 @@
 
 [node name="cart" parent="." unique_id=36557850 instance=ExtResource("1_o5qli")]
 position = Vector2(-685, -468)
+
+[node name="stone_tall" parent="." unique_id=2035342304 instance=ExtResource("3_tbgi4")]
+position = Vector2(8, -242)
+
+[node name="stone_tall2" parent="." unique_id=1291771845 instance=ExtResource("3_tbgi4")]
+position = Vector2(358, -346)
+
+[node name="wood_short" parent="." unique_id=544821570 instance=ExtResource("4_tefeu")]
+position = Vector2(-7, -579)
+
+[node name="stone_tall3" parent="." unique_id=746294904 instance=ExtResource("3_tbgi4")]
+position = Vector2(220.99998, -721)
+rotation = -1.235092
+
+[node name="wood_short2" parent="." unique_id=948945944 instance=ExtResource("4_tefeu")]
+position = Vector2(213.99988, -1023.0001)
+rotation = -1.5869275
+
+[node name="Label" type="Label" parent="." unique_id=339937274]
+offset_left = -555.0
+offset_top = -578.0
+offset_right = 533.0
+offset_bottom = 177.0
+script = ExtResource("5_tbgi4")

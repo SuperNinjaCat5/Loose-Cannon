@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dyl2vvnekje5v"]
+
+[ext_resource type="Texture2D" uid="uid://bxuyremjvassn" path="res://assets/stone_short.png" id="1_djhel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
+size = Vector2(108, 165)
+
+[node name="stone_short" type="RigidBody2D" unique_id=2035342304]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1641110325]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_djhel")
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1509279709]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jljl1")

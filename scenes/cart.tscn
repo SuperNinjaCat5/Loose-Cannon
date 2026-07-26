@@ -62,6 +62,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_766cb")
 show_percentage = false
 
 [node name="Cannon_Cooldown" type="Timer" parent="Cannon_Joint/Cannon" unique_id=107995014]
+wait_time = 0.1
 one_shot = true
 
 [node name="Body" type="RigidBody2D" parent="." unique_id=1403721947]

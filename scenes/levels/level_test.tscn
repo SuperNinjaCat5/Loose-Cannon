@@ -17,6 +17,7 @@ monitoring = false
 monitorable = false
 
 [node name="Boundtangle" type="CollisionShape2D" parent="Level_Bounds" unique_id=817146254]
+visible = false
 position = Vector2(1778.5, -1111.5)
 shape = SubResource("RectangleShape2D_jljl1")
 disabled = true

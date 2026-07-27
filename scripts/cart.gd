@@ -3,7 +3,6 @@ extends Node2D
 @export var cannon_motor_speed = 100
 @export var wheel_motor_speed = 25
 
-@onready var potion_manager: Potion_Manager = $potion_manager
 @onready var potion_scene: PackedScene = preload("res://scenes/potion.tscn")
 
 @onready var front_wheel_joint: PinJoint2D = $Front_Wheel_Joint
@@ -29,14 +28,17 @@ var attempted_aim_dur_cooldown: bool = false
 var calced_power: float
 @onready var cannon_cooldown = $Cannon_Joint/Cannon/Cannon_Cooldown
 
+signal cannon_power_changed(power_percent: float)
+signal cannon_bar_color_changed(color: Color)
+
 func _ready() -> void:
 	power_progress_bar.add_theme_stylebox_override("fill", bar_stylebox)
 	
-	for i in range(10):
+	for i in range(6):
 		var ing = preload("res://resources/ingredients/pepper.tres")
 		var ings: Array[Ingredient] = []
 		ings.append(ing)
-		potion_manager.create_potion(ings)
+		PotionManager.create_potion(ings)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -57,8 +59,13 @@ func _physics_process(delta: float) -> void:
 		AimingTime += delta # Update Aiming time
 		calced_power = abs(cannon_power * sin(AimingTime)) # Calc Power
 		power_progress_bar.value = calced_power / cannon_power * 100 # Update Bar
+		cannon_power_changed.emit(calced_power / cannon_power * 100)
 	elif !cannon_cooldown.is_stopped():
-		power_progress_bar.value = cannon_cooldown.time_left / cannon_cooldown.wait_time * 100
+		var cooldown_percent = cannon_cooldown.time_left / cannon_cooldown.wait_time * 100
+		power_progress_bar.value = cooldown_percent
+		cannon_power_changed.emit(cooldown_percent)
+		#power_progress_bar.value = cannon_cooldown.time_left / cannon_cooldown.wait_time * 100
+		#cannon_power_changed.emit(calced_power / cannon_power * 100)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") or event.is_action_released("Interact"):
@@ -69,6 +76,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("Interact"):
 			print("aim start")
 			bar_stylebox.bg_color = KILL_THEM_ALL_GREEN # Set the bar green
+			cannon_bar_color_changed.emit(KILL_THEM_ALL_GREEN)
 			IsAiming = true
 			AimingTime = 0
 			attempted_aim_dur_cooldown = false
@@ -81,11 +89,11 @@ func _unhandled_input(event: InputEvent) -> void:
 				attempted_aim_dur_cooldown = false
 		
 func fire_cannon_ball(power) -> void:
-	if potion_manager.numberof_potions() == 0:
+	if PotionManager.numberof_potions() == 0:
 		GameManager.level_loss.emit()
 		return
 	
-	var potion_data: Potion_Data = potion_manager.yoink_potion(0)
+	var potion_data: Potion_Data = PotionManager.yoink_potion(0)
 	
 	var potion: RigidBody2D = potion_scene.instantiate()
 	
@@ -107,8 +115,10 @@ func fire_cannon_ball(power) -> void:
 	print(potion.linear_velocity)
 	cannon_cooldown.start()
 	bar_stylebox.bg_color = COOLDOWN_RED
+	cannon_bar_color_changed.emit(COOLDOWN_RED)
 
 func _on_cannon_cooldown_timeout() -> void:
 	power_progress_bar.value = 0
+	cannon_power_changed.emit(0.0)
 	IsAiming = false
 	calced_power = 0

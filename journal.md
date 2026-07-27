@@ -95,3 +95,11 @@ Lapse:
 
 *Total Time: 1.3 hours*
 
+# July 27: Work Work Work - Angelica Schuyler
+
+I updated the progress from the Godot one to my custom textured one. I will hopefully do more today.
+
+Lapse: 
+- https://lapse.hackclub.com/timelapse/d--HasFdq4th
+
+*Total Time: .5 hours*

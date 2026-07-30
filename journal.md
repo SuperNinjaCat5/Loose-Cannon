@@ -108,6 +108,12 @@ Lapse:
 
 I added a display for the held potions in the potion manager. It updates when you shoot or add potions. It was kind of anooying to get working, and I feel like the way I did it was inefficent but I don't know...
 
+I also drew Dark Crystal art and some of the custom cursor icons in Fresco. I also add the custom cursor to the game.
+
+![cursor](assets\hand_open.png)
+
+![dark_crystal](assets\dark_crystal.png)
+
 To get to the point where I can start building out levels I need to:
 
 Find a good way to add liquid (#1 PRIORITY!!!!!!!@!ayikgyhgs)
@@ -115,11 +121,13 @@ Make Structures Breakable
 Add Potion Effects
 Allow the Player to Select Potion
 Maybe add cannon balls back
-Create and add the "Dark Crystals"
+Add the "Dark Crystals"
 
 AGAHHHH so much
 
 Lapse:
 - https://lapse.hackclub.com/timelapse/NjTiA_LrcfcV
+- https://lapse.hackclub.com/timelapse/zeNxN5V2d8Ll
+- Ipad art (~0.33 hrs)
 
-*Total Time: 1 hour*
+*Total Time: ~1.5 hour*

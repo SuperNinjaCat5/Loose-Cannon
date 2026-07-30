@@ -3,6 +3,8 @@ extends Node
 
 var held_potions: Array[Potion_Data] = []
 
+signal held_potions_changed()
+
 func create_potion(ingredients: Array[Ingredient]):
 	var p = Potion_Data.new()
 	p.ingredients = ingredients
@@ -10,6 +12,7 @@ func create_potion(ingredients: Array[Ingredient]):
 	p.findColor()
 	
 	held_potions.append(p)
+	held_potions_changed.emit()
 
 func yoink_potion(index: int) -> Potion_Data: # WILL REMOVE POTION!!!
 	if index > held_potions.size(): 
@@ -18,6 +21,7 @@ func yoink_potion(index: int) -> Potion_Data: # WILL REMOVE POTION!!!
 	
 	var potion = held_potions.get(index)
 	held_potions.remove_at(index)
+	held_potions_changed.emit()
 	
 	return potion
 
@@ -27,6 +31,7 @@ func remove_potion(index: int):
 		return
 	
 	held_potions.remove_at(index)
+	held_potions_changed.emit()
 	
 func get_potion(index: int) -> Potion_Data:
 	if index > held_potions.size(): 

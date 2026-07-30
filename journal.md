@@ -97,9 +97,29 @@ Lapse:
 
 # July 27: Work Work Work - Angelica Schuyler
 
-I updated the progress from the Godot one to my custom textured one. I will hopefully do more today.
+I updated the progress from the Godot one to my custom textured one. ~~I will hopefully do more today.~~ Welp
 
 Lapse: 
 - https://lapse.hackclub.com/timelapse/d--HasFdq4th
 
 *Total Time: .5 hours*
+
+# July 28: 
+
+I added a display for the held potions in the potion manager. It updates when you shoot or add potions. It was kind of anooying to get working, and I feel like the way I did it was inefficent but I don't know...
+
+To get to the point where I can start building out levels I need to:
+
+Find a good way to add liquid (#1 PRIORITY!!!!!!!@!ayikgyhgs)
+Make Structures Breakable
+Add Potion Effects
+Allow the Player to Select Potion
+Maybe add cannon balls back
+Create and add the "Dark Crystals"
+
+AGAHHHH so much
+
+Lapse:
+- https://lapse.hackclub.com/timelapse/NjTiA_LrcfcV
+
+*Total Time: 1 hour*

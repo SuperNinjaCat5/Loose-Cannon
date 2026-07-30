@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cbow0aaavaww4"]
+
+[ext_resource type="Script" uid="uid://26xndkbvi2xj" path="res://scripts/potion_bar.gd" id="1_vwo1f"]
+[ext_resource type="Texture2D" uid="uid://c0jkocee3v8ft" path="res://assets/empty_frame_short.PNG" id="2_boftc"]
+
+[node name="Potion_Bar" type="Control" unique_id=525736125]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vwo1f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2105444924]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/separation = 49
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=352333611]
+layout_mode = 2
+texture = ExtResource("2_boftc")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=17395146]
+layout_mode = 2
+texture = ExtResource("2_boftc")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1806882383]
+layout_mode = 2
+texture = ExtResource("2_boftc")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" unique_id=1720188857]
+layout_mode = 2
+texture = ExtResource("2_boftc")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" unique_id=1114412695]
+layout_mode = 2
+texture = ExtResource("2_boftc")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer" unique_id=2033948756]
+layout_mode = 2
+texture = ExtResource("2_boftc")

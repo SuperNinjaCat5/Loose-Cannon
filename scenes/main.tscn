@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mf2xss5xwpb4" path="res://assets/empty_frame_long.PNG" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://ytsdqrkiruu1" path="res://assets/power_bar_texture.tres" id="7_tipki"]
 [ext_resource type="Script" uid="uid://dsi50y3n4vrme" path="res://scenes/power_bar.gd" id="8_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cbow0aaavaww4" path="res://scenes/potion_bar.tscn" id="9_85g3d"]
 
 [node name="main" type="Node" unique_id=1885324265]
 
@@ -50,6 +51,12 @@ step = 0.01
 texture_under = ExtResource("6_85g3d")
 texture_progress = ExtResource("7_tipki")
 script = ExtResource("8_ya4ey")
+
+[node name="Potion_Bar" parent="." unique_id=525736125 instance=ExtResource("9_85g3d")]
+offset_left = -331.0
+offset_top = 177.0
+offset_right = -331.0
+offset_bottom = 177.0
 
 [connection signal="cannon_bar_color_changed" from="cart" to="PowerBar" method="_on_cart_cannon_bar_color_changed"]
 [connection signal="cannon_power_changed" from="cart" to="PowerBar" method="_on_cart_cannon_power_changed"]

@@ -39,6 +39,7 @@ func _ready() -> void:
 		var ings: Array[Ingredient] = []
 		ings.append(ing)
 		PotionManager.create_potion(ings)
+		print(PotionManager.held_potions)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

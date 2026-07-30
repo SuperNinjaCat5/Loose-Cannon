@@ -106,9 +106,11 @@ Lapse:
 
 # July 28: I passed the Bar!!
 
-I added a display for the held potions in the potion manager. It updates when you shoot or add potions. It was kind of anooying to get working, and I feel like the way I did it was inefficent but I do[...]
+I added a display for the held potions in the potion manager. It updates when you shoot or add potions. It was kind of anooying to get working, and I feel like the way I did it was inefficent but I don't know...
 
 I also drew Dark Crystal art and some of the custom cursor icons in Fresco. I also add the custom cursor to the game.
+
+Later I also added an automatic adjustment of the camera based on a group in the level scene. The art doesn't quite match though, so I will have to fix the alignment later.
 
 ![cursor](assets/hand_open.png)
 
@@ -128,6 +130,7 @@ AGAHHHH so much
 Lapse:
 - https://lapse.hackclub.com/timelapse/NjTiA_LrcfcV
 - https://lapse.hackclub.com/timelapse/zeNxN5V2d8Ll
+- https://lapse.hackclub.com/timelapse/publish/br2pSf4cZtuI
 - Ipad art (~0.33 hrs)
 
-*Total Time: ~1.5 hour*
+*Total Time: ~3 hour*

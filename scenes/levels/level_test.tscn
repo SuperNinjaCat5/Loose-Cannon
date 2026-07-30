@@ -1,33 +1,63 @@
 [gd_scene format=3 uid="uid://u4vhlxxdukoy"]
 
-[ext_resource type="Script" uid="uid://dr4n5iy0438gs" path="res://scenes/levels/level_test.gd" id="1_h0hot"]
+[ext_resource type="Script" uid="uid://bxhng3lfpvwv8" path="res://scripts/camera.gd" id="1_ycf23"]
+[ext_resource type="Texture2D" uid="uid://cvg4wbe7i3oy3" path="res://assets/flat_ground.png" id="2_uh3ll"]
 [ext_resource type="Texture2D" uid="uid://iyglekdmc4hx" path="res://assets/cliff_ground.png" id="2_yluh8"]
+[ext_resource type="PackedScene" uid="uid://da1il0xxv6ync" path="res://scenes/interactable_objects/stone_tall.tscn" id="3_4ptlp"]
+[ext_resource type="PackedScene" uid="uid://j0jcopj642t2" path="res://scenes/interactable_objects/wood_short.tscn" id="4_ycf23"]
+[ext_resource type="PackedScene" uid="uid://b78j2t2hl80uw" path="res://scenes/interactable_objects/wood_tall.tscn" id="5_ycf23"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jljl1"]
-size = Vector2(5483, 2873)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0p8n"]
+size = Vector2(1191, 308)
 
 [node name="LevelTest" type="Node2D" unique_id=1366936845]
-script = ExtResource("1_h0hot")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=737321385]
 editor_draw_screen = false
+script = ExtResource("1_ycf23")
+margin_x = 700.0
 
-[node name="Level_Bounds" type="Area2D" parent="." unique_id=1558515055]
-monitoring = false
-monitorable = false
+[node name="Land" type="StaticBody2D" parent="." unique_id=1649879959]
+position = Vector2(1551, 171)
 
-[node name="Boundtangle" type="CollisionShape2D" parent="Level_Bounds" unique_id=817146254]
+[node name="sprite" type="Sprite2D" parent="Land" unique_id=740486337]
+position = Vector2(-10, -1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_uh3ll")
+
+[node name="collision_rectangle" type="CollisionShape2D" parent="Land" unique_id=79534774]
 visible = false
-position = Vector2(1778.5, -1111.5)
-shape = SubResource("RectangleShape2D_jljl1")
-disabled = true
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_k0p8n")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1528737117]
+[node name="Cliff" type="StaticBody2D" parent="." unique_id=1528737117]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1863855239]
+[node name="sprite" type="Sprite2D" parent="Cliff" unique_id=1863855239]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_yluh8")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=145190278]
+[node name="collision_polygon" type="CollisionPolygon2D" parent="Cliff" unique_id=145190278]
+visible = false
 position = Vector2(-453, -497)
 polygon = PackedVector2Array(-505, 190, 64, 190, 223, 505, 1428, 518, 1441, 824, -513, 818)
+
+[node name="stone_tall" parent="." unique_id=2035342304 groups=["camera_targets"] instance=ExtResource("3_4ptlp")]
+position = Vector2(315, -546)
+rotation = -1.5221088
+
+[node name="stone_tall2" parent="." unique_id=1865499444 groups=["camera_targets"] instance=ExtResource("3_4ptlp")]
+position = Vector2(38, -226)
+
+[node name="wood_short" parent="." unique_id=937742131 groups=["camera_targets"] instance=ExtResource("4_ycf23")]
+position = Vector2(22, -559)
+
+[node name="wood_short2" parent="." unique_id=1454092387 groups=["camera_targets"] instance=ExtResource("4_ycf23")]
+position = Vector2(18.999985, -708)
+rotation = -1.5869275
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="wood_tall" parent="." unique_id=708815166 groups=["camera_targets"] instance=ExtResource("5_ycf23")]
+position = Vector2(356, -233)
+
+[node name="level_corner" type="Marker2D" parent="." unique_id=2025653001]
+position = Vector2(-959, 315)

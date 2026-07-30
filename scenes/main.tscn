@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ca04ssjgs72qv" path="res://scenes/cart.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://u4vhlxxdukoy" path="res://scenes/levels/level_test.tscn" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://da1il0xxv6ync" path="res://scenes/interactable_objects/stone_tall.tscn" id="3_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://j0jcopj642t2" path="res://scenes/interactable_objects/wood_short.tscn" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://bi3m7n24p3ykt" path="res://scripts/loss_win_label.gd" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://mf2xss5xwpb4" path="res://assets/empty_frame_long.PNG" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://ytsdqrkiruu1" path="res://assets/power_bar_texture.tres" id="7_tipki"]
@@ -17,23 +15,6 @@
 [node name="cart" parent="." unique_id=36557850 instance=ExtResource("1_o5qli")]
 position = Vector2(-685, -468)
 
-[node name="stone_tall" parent="." unique_id=2035342304 instance=ExtResource("3_tbgi4")]
-position = Vector2(8, -242)
-
-[node name="stone_tall2" parent="." unique_id=1291771845 instance=ExtResource("3_tbgi4")]
-position = Vector2(358, -346)
-
-[node name="wood_short" parent="." unique_id=544821570 instance=ExtResource("4_tefeu")]
-position = Vector2(-7, -579)
-
-[node name="stone_tall3" parent="." unique_id=746294904 instance=ExtResource("3_tbgi4")]
-position = Vector2(220.99998, -721)
-rotation = -1.235092
-
-[node name="wood_short2" parent="." unique_id=948945944 instance=ExtResource("4_tefeu")]
-position = Vector2(213.99988, -1023.0001)
-rotation = -1.5869275
-
 [node name="Label" type="Label" parent="." unique_id=339937274]
 offset_left = -555.0
 offset_top = -578.0
@@ -41,11 +22,11 @@ offset_right = 533.0
 offset_bottom = 177.0
 script = ExtResource("5_tbgi4")
 
-[node name="PowerBar" type="TextureProgressBar" parent="." unique_id=1132346478]
-offset_left = -331.0
-offset_top = 54.0
-offset_right = 2389.0
-offset_bottom = 476.0
+[node name="PowerBar" type="TextureProgressBar" parent="." unique_id=72811142]
+offset_left = -924.0
+offset_top = 57.0
+offset_right = 1796.0
+offset_bottom = 479.0
 scale = Vector2(0.25, 0.25)
 step = 0.01
 texture_under = ExtResource("6_85g3d")
@@ -53,10 +34,10 @@ texture_progress = ExtResource("7_tipki")
 script = ExtResource("8_ya4ey")
 
 [node name="Potion_Bar" parent="." unique_id=525736125 instance=ExtResource("9_85g3d")]
-offset_left = -331.0
-offset_top = 177.0
-offset_right = -331.0
-offset_bottom = 177.0
+offset_left = -924.0
+offset_top = 180.0
+offset_right = -924.0
+offset_bottom = 180.0
 
 [connection signal="cannon_bar_color_changed" from="cart" to="PowerBar" method="_on_cart_cannon_bar_color_changed"]
 [connection signal="cannon_power_changed" from="cart" to="PowerBar" method="_on_cart_cannon_power_changed"]

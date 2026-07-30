@@ -104,7 +104,7 @@ Lapse:
 
 *Total Time: .5 hours*
 
-# July 28: 
+# July 28: I passed the Bar!!
 
 I added a display for the held potions in the potion manager. It updates when you shoot or add potions. It was kind of anooying to get working, and I feel like the way I did it was inefficent but I do[...]
 

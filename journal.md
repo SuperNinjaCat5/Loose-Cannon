@@ -19,7 +19,7 @@ Lapses:
 
 # July 5-6: Setup Cannon Functionality
 
-I made a cannon ball asset and coded shooting functionallity. I used @export so I can theoretically change the projectile later when I add potions (note to self find a way to mass produce potion art).[...]
+I made a cannon ball asset and coded shooting functionallity. I used @export so I can theoretically change the projectile later when I add potions (note to self find a way to mass produce potion art). I also added a progress/cooldown bar to shoot how much you have charged it and the cooldown time left.
 
 ![cannon-ball](journal-photos/cannon_ball.svg)
 
@@ -40,9 +40,9 @@ Lapses:
 
 # July 8: Start Da Art
 
-I began drawing a lot of the major assets for the game. I decided to redraw the things I made in illustrator using Adobe Fresco. It works really well and it helped me make smooth vector assets. It too[...]
+I began drawing a lot of the major assets for the game. I decided to redraw the things I made in illustrator using Adobe Fresco. It works really well and it helped me make smooth vector assets. It took me a while because I've never done much art or used Fresco, but overall I think they came out great.
 
-My original assets used godot scale to look right, this time I decided on making art in scenes (ex. 1980 x 1020 large canvas). This way I could make each asset in a layer (or layer group) and export t[...]
+My original assets used godot scale to look right, this time I decided on making art in scenes (ex. 1980 x 1020 large canvas). This way I could make each asset in a layer (or layer group) and export them each as a texture that I can easy drop into the game.
 
 ![art](journal-photos/new-art-july8-26.jpeg)
 
@@ -52,9 +52,9 @@ Lapse: I used my Ipad and afaik I can't lapse it
 
 # July 9: Potions and Ear-rape
 
-In the morning I failed to make some villian music for the game. I came back later and make a couldron art, and a pedistal. To fill out the potion room I made a wood background inspired by mc spruce w[...]
+In the morning I failed to make some villian music for the game. I came back later and make a couldron art, and a pedistal. To fill out the potion room I made a wood background inspired by mc spruce wood and my already existing wood texture. I also decided to make a gold frame and a vectorized photo of my cat.
 
-Then, I tried to make a crown for the cat but I decided a jester hat would be more fitting. The hat looked weird on the cat (freaking docter seuss) so I decided to make it the logo for the evil organi[...]
+Then, I tried to make a crown for the cat but I decided a jester hat would be more fitting. The hat looked weird on the cat (freaking docter seuss) so I decided to make it the logo for the evil organization C.L.O.W.N., I also PAINSTACKING drew letters matching the hat. I really need to work on the actual game art instead of just making art for side areas 🥀🥀🥀 
 
 Lapse: 
 - Potion art was done on Ipad again (~4.5 hrs)
@@ -64,7 +64,7 @@ Lapse:
 
 # July 10: I have a headache now
 
-I made a several brewing ingredients and 6 bottle shapes in Fresco. After a hassle trying to export on ipad with Fresco, I figured I could use illistrator app to get the art at 4x scale (using 1/4 sca[...]
+I made a several brewing ingredients and 6 bottle shapes in Fresco. After a hassle trying to export on ipad with Fresco, I figured I could use illistrator app to get the art at 4x scale (using 1/4 scale in godot) for good quality. Afterwards I started implementing them into the game, where I created a system using resources and ONLY 1 SCENE which I'm pretty proud of. I still need to fix bugs so it works tho. Note to self: do art for character tomarrow.
 
 Lapse: 
 - Potion art was done on Ipad again (~1.5 hrs)
